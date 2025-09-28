@@ -1,0 +1,62 @@
+Foundational cloud concepts
+
+Before diving into specific AWS services, grasp these universal cloud concepts:
+Elasticity and Scalability: The ability to automatically grow and shrink computing resources to meet fluctuating demand without manual intervention.
+Infrastructure as a Service (IaaS): The model where a provider, like AWS, manages the physical infrastructure (servers, storage), and you rent the compute, storage, and networking resources.
+Platform as a Service (PaaS): The model where a provider offers a complete application development and deployment environment, abstracting away the underlying infrastructure.
+Software as a Service (SaaS): The model where a provider offers a fully managed, ready-to-use application over the internet.
+Regions and Availability Zones (AZs): An AWS Region is a geographical area, and an Availability Zone is a distinct data center within a Region. Designing applications across multiple AZs is key for high availability and fault tolerance.
+The Shared Responsibility Model: AWS is responsible for the security of the cloud, while the customer is responsible for security in the cloud. You are responsible for securing your data, access controls, and operating systems. 
+
+Core AWS services
+Familiarize yourself with the core services that form the basis of most AWS architectures: 
+
+Compute
+
+Amazon EC2 (Elastic Compute Cloud): Virtual servers (instances) in the cloud. Learn about different instance types, AMIs (Amazon Machine Images), and using EC2 for running applications.
+AWS Lambda: A "serverless" compute service that lets you run code without provisioning or managing servers. It is foundational for building modern, event-driven applications.
+Containers (ECS and EKS): Services for running and managing Docker containers. ECS (Elastic Container Service) is AWS's native orchestrator, while EKS (Elastic Kubernetes Service) runs the popular open-source Kubernetes. 
+
+Storage
+
+Amazon S3 (Simple Storage Service): Object storage for virtually unlimited amounts of data. Understand S3 buckets, object versioning, and hosting static websites.
+Amazon EBS (Elastic Block Store): Persistent block storage volumes for use with EC2 instances.
+Amazon Glacier: A very low-cost storage service for data archiving and long-term backup. 
+
+Networking
+
+Amazon VPC (Virtual Private Cloud): A logically isolated network where you can launch AWS resources. Learning VPCs, subnets, and route tables is essential for building secure environments.
+Security Groups and Network Access Control Lists (NACLs): Virtual firewalls that control traffic to your EC2 instances and subnets.
+Amazon Route 53: A scalable Domain Name System (DNS) web service.
+Elastic Load Balancing (ELB): Automatically distributes incoming application traffic across multiple targets, like EC2 instances. 
+
+Databases
+
+Amazon RDS (Relational Database Service): A managed service that makes it easy to set up, operate, and scale a relational database (MySQL, PostgreSQL, etc.).
+Amazon DynamoDB: A fast, flexible NoSQL database service for high-performance applications.
+Amazon Aurora: A high-performance, MySQL and PostgreSQL-compatible relational database built for the cloud. 
+
+
+Security and access management
+
+Security is paramount in the cloud.
+AWS IAM (Identity and Access Management): Manages access to AWS services and resources securely. Learn about users, groups, roles, and policies.
+AWS KMS (Key Management Service): Creates and manages cryptographic keys to protect your data.
+AWS WAF (Web Application Firewall): Helps protect your web applications from common web exploits. 
+
+Automation and deployment
+
+AWS CloudFormation: A service that helps you model and set up your AWS resources so you can spend less time managing those resources.
+DevOps Principles: Learn about continuous integration and continuous delivery (CI/CD) and how AWS tools like AWS CodePipeline can automate your release process. 
+
+Cost optimization
+
+AWS offers a "pay-as-you-go" model, so understanding cost management is crucial.
+AWS Pricing Fundamentals: Learn about how different services are priced and how to optimize costs.
+Cost Management Tools: Use tools like the AWS Cost Explorer to analyze your spending and identify savings opportunities. 
+
+Getting hands-on experience
+To solidify your knowledge, you can:
+Use the AWS Free Tier: The Free Tier provides free access to a variety of AWS services for a limited usage per month.
+Pursue a certification: The AWS Certified Cloud Practitioner is an excellent starting point that covers all the fundamental concepts.
+Complete AWS-provided labs: AWS Educate and AWS Skill Builder offer hands-on labs for many services

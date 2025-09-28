@@ -10,10 +10,6 @@ variable "instance_type" {
   default     = "t3.micro"
 }
 
-variable "instance_name" {
-  description = "name of the instances to be created"
-  type        = string
-}
 variable "environment" {
   description = "name of the environment for changes"
   type        = string
