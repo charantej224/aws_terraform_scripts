@@ -1,7 +1,3 @@
-variable "aws_region" {
-  description = "AWS region to deploy in"
-  type        = string
-}
 
 variable "ami_id" {
   description = "AMI image name that's used for EC2 creation"
@@ -16,5 +12,9 @@ variable "instance_type" {
 
 variable "instance_name" {
   description = "name of the instances to be created"
+  type        = string
+}
+variable "environment" {
+  description = "name of the environment for changes"
   type        = string
 }

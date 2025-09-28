@@ -1,6 +1,3 @@
-provider "aws" {
-  region = var.aws_region
-}
 
 resource "aws_instance" "web_server" {
   ami           = var.ami_id
@@ -8,5 +5,6 @@ resource "aws_instance" "web_server" {
 
   tags = {
     Name = var.instance_name
+    Environment = var.environment
   }
 }

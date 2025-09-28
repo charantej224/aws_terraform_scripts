@@ -1,7 +1,10 @@
+provider "aws" {
+  region = var.global_vars.aws_region
+}
 
 module "web_server" {
   source        = "./modules/ec2_instance"
-  aws_region    = "us-east-1"
-  ami_id        = "ami-0b0ea68c435eb488d"
-  instance_name = "myweb"
+  ami_id        = var.aws_instance_vars.ami_id
+  instance_name = var.aws_instance_vars.instance_name
+  environment   = var.aws_instance_vars.environment
 }
