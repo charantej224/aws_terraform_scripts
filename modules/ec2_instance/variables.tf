@@ -14,3 +14,21 @@ variable "environment" {
   description = "name of the environment for changes"
   type        = string
 }
+
+variable "security_groups" {
+  description = "list of security groups"
+  type        = list(string)
+
+}
+
+variable "public_vpc_subnets" {
+  description = "public subnets within VPC"
+  type = list(string)
+  
+}
+
+variable "private_vpc_subnets" {
+  description = "private subnets within VPC"
+  type = list(string)
+  
+}

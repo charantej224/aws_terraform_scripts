@@ -16,7 +16,7 @@ resource "aws_subnet" "public_zone1a" {
     vpc_id = aws_vpc.thotas_vpc.id
     cidr_block = "10.0.1.0/25"
     availability_zone = "us-east-1a"
-
+    map_public_ip_on_launch = true
     tags = {
     Name = "public-subnet"
     Environment = var.environment
@@ -40,7 +40,7 @@ resource "aws_subnet" "public_zone1b" {
     vpc_id = aws_vpc.thotas_vpc.id
     cidr_block = "10.0.2.0/25"
     availability_zone = "us-east-1b"
-
+    map_public_ip_on_launch = true
     tags = {
     Name = "public-subnet"
     Environment = var.environment
@@ -64,7 +64,7 @@ resource "aws_internet_gateway" "thotas_igw" {
   vpc_id = aws_vpc.thotas_vpc.id
 
   tags = {
-    Name = "main-igw"
+    Name = "thotas-vpc-igw"
     Environment = var.environment
   }
 }
@@ -86,11 +86,11 @@ resource "aws_route_table" "thotas_public_routes" {
 
 # Associate Public Subnet with Route Table
 resource "aws_route_table_association" "az_1a_route" {
-  subnet_id      = aws_subnet.private_zone1a.id
+  subnet_id      = aws_subnet.public_zone1a.id
   route_table_id = aws_route_table.thotas_public_routes.id
 }
 
 resource "aws_route_table_association" "az_1b_route" {
-  subnet_id      = aws_subnet.private_zone1b.id
+  subnet_id      = aws_subnet.public_zone1b.id
   route_table_id = aws_route_table.thotas_public_routes.id
 }

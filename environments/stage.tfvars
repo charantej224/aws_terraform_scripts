@@ -3,6 +3,6 @@ global_vars = {
 }
 
 aws_instance_vars = {
-  ami_id        = "ami-0b0ea68c435eb488d"
+  ami_id        = "ami-0c2b8ca1dad447f8a"
   environment   = "dev"
 }
