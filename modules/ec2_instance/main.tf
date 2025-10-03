@@ -4,7 +4,12 @@ resource "random_pet" "name" {}
 resource "tls_private_key" "ec2_key" {
   algorithm = "RSA"
   rsa_bits  = 4096
+}
 
+resource "local_file" "ssh_private_key" {
+  content = tls_private_key.ec2_key.private_key_pem
+  filename = "ec2-key-${random_pet.name.id}.pem"
+  file_permission = "0600"
 }
 
 resource "aws_key_pair" "generated_key" {
