@@ -7,8 +7,8 @@ resource "tls_private_key" "ec2_key" {
 }
 
 resource "local_file" "ssh_private_key" {
-  content = tls_private_key.ec2_key.private_key_pem
-  filename = "ec2-key-${random_pet.name.id}.pem"
+  content         = tls_private_key.ec2_key.private_key_pem
+  filename        = "ec2-key-${random_pet.name.id}.pem"
   file_permission = "0600"
 }
 
@@ -23,6 +23,8 @@ resource "aws_instance" "web_server_az1" {
   subnet_id       = var.public_vpc_subnets[0]
   key_name        = aws_key_pair.generated_key.key_name
   security_groups = var.security_groups
+  #placement_group = aws_placement_group.ec2_pg_cluster.name
+  #count           = 2
 
   user_data = <<-EOF
               #!/bin/bash
@@ -45,6 +47,8 @@ resource "aws_instance" "web_server_az2" {
   subnet_id       = var.public_vpc_subnets[1]
   key_name        = aws_key_pair.generated_key.key_name
   security_groups = var.security_groups
+  #placement_group = aws_placement_group.ec2_pg_cluster.name
+  #count           = 2
 
   user_data = <<-EOF
               #!/bin/bash
@@ -54,7 +58,7 @@ resource "aws_instance" "web_server_az2" {
               systemctl enable httpd
               echo "Hello from AZ1" > /var/www/html/index.html
               EOF
-              
+
   tags = {
     Name        = "EC2-AZ2-${random_pet.name.id}"
     Environment = var.environment

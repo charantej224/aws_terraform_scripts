@@ -7,7 +7,7 @@ variable "ami_id" {
 variable "instance_type" {
   description = "instace type of ec2 to be created"
   type        = string
-  default     = "t3.micro"
+  default     = "m5.large"
 }
 
 variable "environment" {
