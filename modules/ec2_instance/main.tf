@@ -34,7 +34,7 @@ resource "aws_instance" "web_server_az1" {
               systemctl enable httpd
               echo "Hello from AZ1" > /var/www/html/index.html
               EOF
-
+  
   tags = {
     Name        = "EC2-AZ1-${random_pet.name.id}"
     Environment = var.environment
