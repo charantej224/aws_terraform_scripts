@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "some" >> output.txt
+
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "Hello from - ${ec2_name} " > /var/www/html/index.html
+
+

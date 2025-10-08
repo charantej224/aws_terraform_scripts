@@ -26,14 +26,9 @@ resource "aws_instance" "web_server_az1" {
   #placement_group = aws_placement_group.ec2_pg_cluster.name
   #count           = 2
 
-  user_data = <<-EOF
-              #!/bin/bash
-              yum update -y
-              yum install -y httpd
-              systemctl start httpd
-              systemctl enable httpd
-              echo "Hello from AZ1" > /var/www/html/index.html
-              EOF
+  user_data = templatefile("${path.module}/user_data.tftpl", {
+    ec2_name = "EC2-AZ1-${random_pet.name.id}"
+  })
   
   tags = {
     Name        = "EC2-AZ1-${random_pet.name.id}"
@@ -50,14 +45,9 @@ resource "aws_instance" "web_server_az2" {
   #placement_group = aws_placement_group.ec2_pg_cluster.name
   #count           = 2
 
-  user_data = <<-EOF
-              #!/bin/bash
-              yum update -y
-              yum install -y httpd
-              systemctl start httpd
-              systemctl enable httpd
-              echo "Hello from AZ1" > /var/www/html/index.html
-              EOF
+  user_data = templatefile("${path.module}/user_data.tftpl", {
+    ec2_name = "EC2-AZ2-${random_pet.name.id}"
+  })
 
   tags = {
     Name        = "EC2-AZ2-${random_pet.name.id}"
