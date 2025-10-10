@@ -1,5 +1,8 @@
 global_vars = {
   aws_region = "us-east-1"
+  state_bucket = "terraform-state-us-east1"
+  state_key = "stage_env"
+
 }
 
 aws_instance_vars = {
