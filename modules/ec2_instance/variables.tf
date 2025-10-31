@@ -32,3 +32,9 @@ variable "private_vpc_subnets" {
   type = list(string)
   
 }
+
+variable "var_efs_id" {
+  description = "efs ID values to be embedded into ec2"
+  type = string
+  
+}

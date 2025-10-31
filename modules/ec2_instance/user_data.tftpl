@@ -3,7 +3,10 @@
 echo "some" >> output.txt
 
 yum update -y
+yum install -y amazon-efs-utils
 yum install -y httpd
+mkdir /mnt/efs
+mount -t efs ${efs_id}:/ /mnt/efs
 systemctl start httpd
 systemctl enable httpd
 echo "Hello from - ${ec2_name} " > /var/www/html/index.html

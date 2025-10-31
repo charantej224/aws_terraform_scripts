@@ -28,6 +28,7 @@ resource "aws_instance" "web_server_az1" {
 
   user_data = templatefile("${path.module}/user_data.tftpl", {
     ec2_name = "EC2-AZ1-${random_pet.name.id}"
+    efs_id = var.var_efs_id
   })
   
   tags = {
@@ -47,6 +48,7 @@ resource "aws_instance" "web_server_az2" {
 
   user_data = templatefile("${path.module}/user_data.tftpl", {
     ec2_name = "EC2-AZ2-${random_pet.name.id}"
+    efs_id = var.var_efs_id
   })
 
   tags = {
